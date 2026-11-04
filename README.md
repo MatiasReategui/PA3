@@ -7,11 +7,11 @@
 ## Integrantes
 
 | Nombre completo | Participación |
-|---|---|---|
-| Jose Stuart Fonseca Vega| 100%|
-| Christian Paolo Vera Palomino | 100%|
-| | 100%|
-| | 100%|
+|---|---|
+| JOSE STUART FONSECA VEGA | 100% |
+| NOMBRES Y APELLIDOS | 100% |
+| NOMBRES Y APELLIDOS | 100% |
+| NOMBRES Y APELLIDOS | 100% |
 
 
 ## Descripción
