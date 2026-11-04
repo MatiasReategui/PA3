@@ -9,11 +9,10 @@ export default function NavBar() {
 
   return (
     <nav className="barra-navegacion">
-      <span className="marca">🎓 Solicitudes Académicas · React SPA</span>
+      <span className="marca">🎓 Solicitudes Académicas | ISIL </span>
       <NavLink to="/" end>Inicio</NavLink>
       <NavLink to="/solicitudes">Listado</NavLink>
       <NavLink to="/solicitudes/nueva">Nueva solicitud</NavLink>
-      <NavLink to="/acerca">Context vs Redux</NavLink>
       <span className="contador-favoritos">★ {cantidadFavoritos}</span>
     </nav>
   );

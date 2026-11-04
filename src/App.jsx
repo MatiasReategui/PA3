@@ -4,7 +4,6 @@ import Inicio from './pages/Inicio';
 import ListadoSolicitudes from './pages/ListadoSolicitudes';
 import NuevaSolicitud from './pages/NuevaSolicitud';
 import DetalleSolicitud from './pages/DetalleSolicitud';
-import AcercaComparacion from './pages/AcercaComparacion';
 import NoEncontrada from './pages/NoEncontrada';
 import './App.css';
 
@@ -19,7 +18,6 @@ export default function App() {
           <Route path="/solicitudes" element={<ListadoSolicitudes />} />
           <Route path="/solicitudes/nueva" element={<NuevaSolicitud />} />
           <Route path="/solicitudes/:id" element={<DetalleSolicitud />} />
-          <Route path="/acerca" element={<AcercaComparacion />} />
           <Route path="*" element={<NoEncontrada />} />
         </Routes>
       </main>
