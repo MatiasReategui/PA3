@@ -1,28 +1,25 @@
-import { NavLink, Route, Routes } from "react-router-dom";
-import Resumen from "./components/Resumen";
-import Inicio from "./pages/Inicio";
-import ListaSolicitudes from "./pages/ListaSolicitudes";
-import NuevaSolicitud from "./pages/NuevaSolicitud";
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Inicio from './pages/Inicio';
+import ListadoSolicitudes from './pages/ListadoSolicitudes';
+import NuevaSolicitud from './pages/NuevaSolicitud';
+import DetalleSolicitud from './pages/DetalleSolicitud';
+import AcercaComparacion from './pages/AcercaComparacion';
+import './App.css';
 
-// Rutas mínimas para poder demostrar el estado global entre vistas.
-// (La configuración completa de React Router corresponde a la Actividad 2.)
+// Actividad 2 — Navegación con React Router: se definen aquí las rutas principales del caso.
 export default function App() {
   return (
     <>
-      <header className="cabecera">
-        <nav>
-          <NavLink to="/" end>Inicio</NavLink>
-          <NavLink to="/solicitudes">Solicitudes</NavLink>
-          <NavLink to="/nueva">Nueva solicitud</NavLink>
-        </nav>
-        <Resumen />
-      </header>
-
-      <main>
+      <NavBar />
+      <main className="contenedor">
         <Routes>
           <Route path="/" element={<Inicio />} />
-          <Route path="/solicitudes" element={<ListaSolicitudes />} />
-          <Route path="/nueva" element={<NuevaSolicitud />} />
+          <Route path="/solicitudes" element={<ListadoSolicitudes />} />
+          <Route path="/solicitudes/nueva" element={<NuevaSolicitud />} />
+          <Route path="/solicitudes/:id" element={<DetalleSolicitud />} />
+          <Route path="/acerca" element={<AcercaComparacion />} />
+          <Route path="*" element={<Inicio />} />
         </Routes>
       </main>
     </>

@@ -1,34 +1,37 @@
-import { Link } from "react-router-dom";
-import { useSolicitudes } from "../context/SolicitudesContext";
+import { Link } from 'react-router-dom';
+import { useSolicitudes } from '../context/SolicitudesContext';
 
-// CONSUMER 2: muestra las últimas solicitudes registradas.
 export default function Inicio() {
-  const { solicitudes } = useSolicitudes();
-  const recientes = [...solicitudes].slice(-3).reverse();
+  const { solicitudes, cargando } = useSolicitudes();
+
+  // useState + useEffect derivado: ejemplo adicional de Hooks dentro de un componente
+  // de página, calculando un resumen a partir del estado global del Context.
+  const totalPendientes = solicitudes.filter((s) => s.estado === 'Pendiente').length;
 
   return (
-    <section>
-      <h1>Gestión de solicitudes académicas</h1>
+    <section className="pagina-inicio">
+      <h1>Plataforma de Gestión de Solicitudes Académicas</h1>
       <p>
-        Registra solicitudes y revisa su estado. Todas las vistas comparten el
-        mismo estado mediante Context API.
+        SPA construida con React.js, JSX, componentes, Hooks (useState/useEffect),
+        React Router, Context API y una introducción básica a Redux.
       </p>
 
-      <h2>Últimas solicitudes</h2>
-      {recientes.length === 0 ? (
-        <p className="vacio">
-          Aún no hay solicitudes. <Link to="/nueva">Registra la primera</Link>.
-        </p>
+      {cargando ? (
+        <p>Cargando resumen…</p>
       ) : (
-        <ul className="lista">
-          {recientes.map((s) => (
-            <li key={s.id}>
-              <span>{s.tipo} · {s.estudiante}</span>
-              <span className={`estado ${s.estado.toLowerCase()}`}>{s.estado}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="tarjetas-resumen">
+          <div className="resumen-item">
+            <strong>{solicitudes.length}</strong>
+            <span>Solicitudes registradas</span>
+          </div>
+          <div className="resumen-item">
+            <strong>{totalPendientes}</strong>
+            <span>Pendientes de revisión</span>
+          </div>
+        </div>
       )}
+
+      <Link to="/solicitudes" className="btn-primario">Ver listado completo</Link>
     </section>
   );
 }

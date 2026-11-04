@@ -1,18 +1,20 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App.jsx";
-import { SolicitudesProvider } from "./context/SolicitudesContext.jsx";
-import "./index.css";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider as ReduxProvider } from 'react-redux'
+import './index.css'
+import App from './App.jsx'
+import { SolicitudesProvider } from './context/SolicitudesContext.jsx'
+import { store } from './redux/store.js'
 
-// El Provider envuelve a toda la aplicación (dentro del Router) para que
-// cualquier componente descendiente pueda consumir el estado global.
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <ReduxProvider store={store}>
       <SolicitudesProvider>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </SolicitudesProvider>
-    </BrowserRouter>
-  </StrictMode>
-);
+    </ReduxProvider>
+  </StrictMode>,
+)
