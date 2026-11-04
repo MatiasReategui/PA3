@@ -9,10 +9,11 @@
 | Nombre completo | Participación |
 |---|---|
 | JOSE STUART FONSECA VEGA | 100% |
-| NOMBRES Y APELLIDOS | 100% |
-| NOMBRES Y APELLIDOS | 100% |
-| NOMBRES Y APELLIDOS | 100% |
+| MATÍAS REATEGUI | 100% |
+| CHRISTIAN PAOLO VERA PALOMINO | 100% |
+| CHRISTIAN PAOLO VERA PALOMINO | 100% |
 
+## Descripción y objetivo
 
 ## Descripción
 
@@ -62,8 +63,6 @@ Construir una SPA con React.js que use componentes, Hooks, React Router, Context
 2. El slice `idsFavoritos` guarda los ids de las solicitudes marcadas como favoritas. Se eligió Redux para este dato porque se muestra en un lugar distinto a donde se modifica (el contador de la barra superior y las tarjetas) y no depende de los datos de las solicitudes.
 3. El store se conecta a la aplicación con `Provider` de `react-redux` en `main.jsx`.
 4. Los componentes leen el estado con `useSelector` y modifican el estado con `dispatch(alternarFavorito(id))`.
-
-## Solución propuesta
 
 ### Estructura del proyecto
 
@@ -169,8 +168,9 @@ Las capturas están en la carpeta [`evidencias/`].
 
 ## Conclusiones
 
-_(Completar con las conclusiones propias, en sus palabras, sobre: cuándo conviene Context API para este caso, cuándo sería preferible Redux, y cómo se relaciona la solución con los contenidos de las sesiones 8, 9 y 10.)_
-
-## Video de exposición
-
-**Video público de YouTube:** [PEGAR AQUÍ EL ENLACE]
+- Se construyó una SPA en React que cambia de vista sin recargar la página, con estructura de componentes y uso verificable de `useState` y `useEffect`.
+- React Router permitió separar las vistas del caso, incluyendo una ruta con parámetro para el detalle.
+- Context API resultó suficiente y simple para compartir la lista de solicitudes entre varias vistas, evitando pasar datos manualmente por múltiples niveles de componentes.
+- Redux Toolkit mostró el flujo explícito de acciones y reducers sobre una necesidad acotada, a costa de más código; para este tamaño de proyecto, Context API es la opción más económica.
+- Elegir bien dónde vive cada dato (estado local, contexto o Redux) fue una decisión clave: no todo el estado debe ser global.
+- Dejar los datos simulados aislados en un solo módulo prepara el siguiente paso, que será conectar la SPA con una API real.
